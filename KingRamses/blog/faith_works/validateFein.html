@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-md-7">
+        <h1>Add A New Business</h1>
+        <p>Please fill in all of the information below to add a new business.</p>
+    </div>
+    <div class="col-md-5">
+        <div class="wayfinder-horizontal" style="display : block">
+            <ul>
+                <li id="1201" class="active"><span>1</span>Business<br>Details</li>
+                <li id="1202"><span>2</span>Filing<br>Information</li>
+                <li id="1203"><span>3</span>Verify<br>Business</li>
+                <li id="1204"><span>4</span>Enter<br>Access Code</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<form ng-submit="validateFein.verify()" novalidate>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Basic Business Details</h2>
+                    <p class="required-banner">Required <span>*</span></p>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <formly-form model="validateFein.model" fields="validateFein.feinForm" form="validateFein.form1"></formly-form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary">Next</button>
+                        <button type="button" class="btn btn-danger btn-cancel" ui-sref="mtoApp.businessList">Cancel<i class="fa fa-close"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!--Modal for invalid FEIN-->
+<div id="invalidFein" class="modal" tabindex="-1" role="dialog" aria-labelledby="invalidFeinLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="invalidFeinLabel">Invalid FEIN</h4>
+            </div>
+            <div class="modal-body">
+                <span ng-if="!validateFein.model.userLocked">
+                    <p class="warning">This FEIN is not active with the Michigan Department of Treasury. Please visit <a href="http://www.michiganbusiness.org/start-up/business-assistance/#licenses" target="_blank">UIA</a> to register your business.</p>
+                </span>
+                <span ng-if="validateFein.model.userLocked">
+                    <p class="warning">Your access to this FEIN is currently restricted.</p>
+                </span>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Okay</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of invalid FEIN-->
+

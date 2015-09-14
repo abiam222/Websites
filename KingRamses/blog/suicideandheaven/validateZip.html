@@ -1,0 +1,62 @@
+<div class="row" ng-if="!validateFein.model.verified">
+    <div class="col-md-7">
+        <h1>Verify Legal Zip</h1>
+        <p>Please verify the zip code of the business's legal address.</p>
+    </div>
+    <div class="col-md-5" ng-if="!validateFein.model.verified">
+        <div class="wayfinder-horizontal" style="display : block">
+            <ul>
+                <li id="1201" class="complete"><span>1</span>Business<br>Details</li>
+                <li id="1202" class="complete"><span>2</span>Filing<br>Information</li>
+                <li id="1203" class="active"><span>3</span>Verify<br>Business</li>
+                <li id="1204"><span>4</span>Enter<br>Access Code</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="required-banner">Required <span>*</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <form ng-submit="validateZip.verify()" novalidate>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <formly-form model="validateZip.model" fields="validateZip.zipForm" form="validateZip.form"></formly-form>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" ng-disabled="validateZip.form.$invalid">Verify</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal for invalid ZIP-->
+<div id="invalidZip" class="modal" tabindex="-1" role="dialog" aria-labelledby="invalidZipLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="invalidZipLabel">Invalid ZIP</h4>
+            </div>
+            <div class="modal-body" >
+                <p class="warning">This ZIP is not associated with the selected business's legal address.
+                    <span ng-if="validateZip.model.attemptsRemaining > '0'">
+                        You have<strong> {{validateZip.model.attemptsRemaining}} attempt<span ng-if="validateZip.model.attemptsRemaining !== '1'">s</span></strong> remaining.
+                    </span>
+                    <span ng-if="validateZip.model.attemptsRemaining < '1'">Your access to this FEIN has been restricted for 60 minutes.</span>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Okay</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of invalid ZIP-->
