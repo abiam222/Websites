@@ -1,0 +1,55 @@
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.header {
+  background-color: blue;
+  height: 50px;
+}
+
+.cardo {
+  padding: 250px 0;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/pic02.jpeg");
+  background-size: cover;
+}
+
+
+.cardo h2 {
+  font: 400 36px/1.4 'cardo';
+  font-style: italic;
+  color: #E9E9EB;
+  margin: 50px;
+}
+
+.cardo a {
+  text-decoration: none;
+}
+
+.vollkorn {
+  padding: 250px 0;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/pic03.jpeg");
+  background-size: cover;
+  text-align: center;
+}
+
+.vollkorn h2 {
+  font: 400 20px/30px 'vollkorn';
+  font-style: italic;
+  color: #333;
+  margin: 50px;
+}
+
+.vollkorn a {
+  text-decoration: none;
+}
+
+.vollkorn p {
+  color: #C90707;
+  font: 400 12px/18px 'vollkorn';
+  text-transform: uppercase;
+  text-indent: -13px;
+  }
