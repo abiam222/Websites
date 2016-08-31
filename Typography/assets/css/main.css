@@ -53,3 +53,26 @@ html, body {
   text-transform: uppercase;
   text-indent: -13px;
   }
+
+  .narrow {
+  padding: 250px 0;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/pic06.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+.narrow h2 {
+  color: #E9E9EB;
+  font: 700 24px/24px 'pt sans narrow';
+  line-height: 40px;
+  /*font-style: italic;*/
+  text-transform: uppercase;
+  text-decoration: none;
+/*  text-indent: -13px;*/
+  }
+
+.narrowHeader {
+  padding: 10px;
+  width: 50%;
+}
